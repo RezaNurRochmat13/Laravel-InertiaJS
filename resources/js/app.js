@@ -1,6 +1,7 @@
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import Layout from './Layouts/AppLayout.vue';
+import '../css/app.css';
 
 createInertiaApp({
   resolve: name => {
