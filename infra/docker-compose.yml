@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: laravel-inertia-postgres
+    environment:
+      POSTGRES_USER: laravel-inertia
+      POSTGRES_PASSWORD: laravel-inertia
+      POSTGRES_DB: laravel-inertia-db
+    ports:
+      - "5434:5432"
+    volumes:
+      - inertia_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  inertia_postgres_data:
