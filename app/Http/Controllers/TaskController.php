@@ -32,47 +32,60 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        \Log::info('STORE CALLED', $request->all());
         $request->validate([
             'title' => 'required',
             'description' => 'required',
         ]);
 
         $task = Task::create($request->only('title', 'description'));
-        \Log::info('Created Task:', $task->toArray());
 
-        return redirect()->route('tasks.index');
+        return Inertia::location(route('tasks.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(task $task)
+    public function show(Task $task)
     {
-        //
+        return Inertia::render('Tasks/Show', [
+            'task' => $task
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(task $task)
+    public function edit(Task $task)
     {
-        //
+        return Inertia::render('Tasks/Edit', [
+            'task' => $task
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, task $task)
+    public function update(Request $request, Task $task)
     {
-        //
+        \Log::info('Update Called', $request->all());
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $task->update($request->only('title', 'description'));
+
+        return Inertia::location(route('tasks.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(task $task)
+    public function destroy(Task $task)
     {
-        //
+        \Log::info('Delete Called');
+        $task->delete();
+        return Inertia::location(route('tasks.index'));
     }
 }
