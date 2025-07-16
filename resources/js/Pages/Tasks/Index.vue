@@ -1,14 +1,20 @@
 <script setup>
-    defineProps({
-        tasks: Array ,
-        flash: Object,
+import { Inertia } from '@inertiajs/inertia';
+
+  defineProps({
+    tasks: Array ,
+    flash: Object,
+  });
+
+
+  function destroy(id) {
+    if (confirm('Are you sure you want to delete this task?')) {
+      Inertia.delete(`/tasks/${id}`, {
+      onSuccess: () => {
+        console.log('Deleted!');
+      }
     });
-
-
-    function destroy(id) {
-        if (confirm('Are you sure?')) {
-            Inertia.delete(`/tasks/${id}`);
-        }
+  }
     }
     </script>
 
