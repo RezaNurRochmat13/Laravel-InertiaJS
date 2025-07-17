@@ -67,8 +67,6 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        \Log::info('Update Called', $request->all());
-
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -84,7 +82,6 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        \Log::info('Delete Called');
         $task->delete();
         return Inertia::location(route('tasks.index'));
     }
