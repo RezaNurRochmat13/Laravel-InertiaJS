@@ -1,6 +1,12 @@
 <script setup>
 import { useForm } from '@inertiajs/inertia-vue3';
-const props = defineProps({ task: Object });
+
+const props = defineProps({
+    task: {
+        type: Object,
+        default: () => ({}),
+    }
+});
 
 const form = useForm({
   title: props.task.title,
@@ -8,7 +14,6 @@ const form = useForm({
 });
 
 function submit() {
-  console.log('Submitting to:', `/tasks/${props.task.id}`);
   form.patch(`/tasks/${props.task.id}`, {
     preserveScroll: true,
     onFinish: () => console.log("Done"),
@@ -18,12 +23,40 @@ function submit() {
 
 <template>
   <div>
-    <h1 class="text-xl font-bold mb-4">Edit Task</h1>
-    <form @submit.prevent="submit">
-      <input v-model="form.title" class="border p-1 block mb-2 w-full" />
-      <input v-model="form.description" class="border p-1 block mb-2 w-full" />
-      <button class="bg-blue-500 text-white px-3 py-1">Update</button>
-    </form>
+        <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Edit Task</h1>
+
+            <form @submit.prevent="submit" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="title">Title</label>
+                    <input
+                    id="title"
+                    v-model="form.title"
+                    type="text"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="description">Description</label>
+                    <input
+                    id="description"
+                    v-model="form.description"
+                    type="text"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+
+                <div class="flex justify-end">
+                    <button
+                    type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md transition"
+                    >
+                    Update
+                    </button>
+                </div>
+            </form>
+    </div>
   </div>
 </template>
 
