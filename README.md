@@ -137,5 +137,3 @@ Simply replicate the folder structure under `app/Modules/{ModuleName}`.
 * Laravel service container & dependency injection
 * Domain-first thinking
 * Inertia.js for clean SPA-like UX
-
----
