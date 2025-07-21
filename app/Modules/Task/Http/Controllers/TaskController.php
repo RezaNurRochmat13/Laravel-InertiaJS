@@ -2,11 +2,11 @@
 
 namespace App\Modules\Task\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Http\Controllers\Controller;
 use App\Modules\Task\Services\TaskService;
 use App\Modules\Task\Requests\StoreTaskRequest;
 use App\Modules\Task\Requests\UpdateTaskRequest;
-use Inertia\Inertia;
 
 class TaskController extends Controller
 {

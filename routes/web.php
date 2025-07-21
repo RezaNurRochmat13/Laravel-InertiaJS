@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Modules\Task\Http\Controllers\TaskController;
-use App\Http\Controllers\EmployeeController;
+use App\Modules\Employee\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------

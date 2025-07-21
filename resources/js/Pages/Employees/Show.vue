@@ -31,8 +31,8 @@ defineProps({ employee: {
         </div>
 
         <div>
-        <a href="/tasks" class="inline-block text-sm text-blue-600 hover:text-blue-800 font-medium">
-            ← Back to Tasks
+        <a href="/employees" class="inline-block text-sm text-blue-600 hover:text-blue-800 font-medium">
+            ← Back to Employees
         </a>
         </div>
     </div>

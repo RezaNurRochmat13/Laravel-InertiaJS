@@ -16,7 +16,7 @@ const form = useForm({
 });
 
 function submit() {
-  form.patch(`/employees/${props.task.id}`, {
+  form.patch(`/employees/${props.employee.id}`, {
     preserveScroll: true,
     onFinish: () => console.log("Done"),
   });
@@ -30,7 +30,7 @@ function submit() {
 
             <form @submit.prevent="submit" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1" for="title">Title</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="title">Name</label>
                     <input
                     id="name"
                     v-model="form.name"
