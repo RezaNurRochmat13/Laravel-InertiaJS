@@ -7,12 +7,7 @@ use App\Modules\Task\Models\Task;
 
 class TaskService
 {
-    private TaskRepositoryImpl $taskRepository;
-
-    public function __construct(TaskRepositoryImpl $taskRepository)
-    {
-        $this->taskRepository = $taskRepository;
-    }
+    public function __construct(protected TaskRepositoryImpl $taskRepository) {}
 
     public function getAllTasks(): \Illuminate\Support\Collection
     {

@@ -6,11 +6,7 @@ use App\Modules\Employee\Repositories\EmployeeRepositoryImpl;
 use App\Modules\Employee\Models\Employee;
 
 class EmployeeService {
-    private EmployeeRepositoryImpl $employeeRepository;
-
-    public function __construct(EmployeeRepositoryImpl $employeeRepository) {
-        $this->employeeRepository = $employeeRepository;
-    }
+    public function __construct(protected EmployeeRepositoryImpl $employeeRepository) {}
 
     public function getAllEmployees(): \Illuminate\Support\Collection {
         return $this->employeeRepository->all();
