@@ -2,11 +2,11 @@
 
 namespace App\Modules\Employee\Services;
 
-use App\Modules\Employee\Repositories\EmployeeRepositoryImpl;
+use App\Modules\Employee\Repositories\EmployeeRepositoryInterface;
 use App\Modules\Employee\Models\Employee;
 
 class EmployeeService {
-    public function __construct(protected EmployeeRepositoryImpl $employeeRepository) {}
+    public function __construct(protected EmployeeRepositoryInterface $employeeRepository) {}
 
     public function getAllEmployees(): \Illuminate\Support\Collection {
         return $this->employeeRepository->all();

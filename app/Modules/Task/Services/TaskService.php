@@ -2,12 +2,12 @@
 
 namespace App\Modules\Task\Services;
 
-use App\Modules\Task\Repositories\TaskRepositoryImpl;
+use App\Modules\Task\Repositories\TaskRepositoryInterface;
 use App\Modules\Task\Models\Task;
 
 class TaskService
 {
-    public function __construct(protected TaskRepositoryImpl $taskRepository) {}
+    public function __construct(protected TaskRepositoryInterface $taskRepository) {}
 
     public function getAllTasks(): \Illuminate\Support\Collection
     {
