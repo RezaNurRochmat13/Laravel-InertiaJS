@@ -4,17 +4,14 @@ namespace App\Modules\Employee\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use App\Modules\Employee\Services\EmployeeService;
 use App\Modules\Employee\Requests\StoreEmployeeRequest;
 use App\Modules\Employee\Requests\UpdateEmployeeRequest;
-use App\Modules\Employee\Services\EmployeeService;
 
 class EmployeeController extends Controller
 {
 
-    public function __construct(EmployeeService $employeeService)
-    {
-        $this->employeeService = $employeeService;
-    }
+    public function __construct(protected EmployeeService $employeeService) {}
 
     public function index()
     {

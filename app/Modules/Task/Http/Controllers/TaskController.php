@@ -12,10 +12,7 @@ class TaskController extends Controller
 {
 
     // Dependency injection TaskService
-    public function __construct(TaskService $taskService)
-    {
-        $this->taskService = $taskService;
-    }
+    public function __construct(protected TaskService $taskService) {}
 
     public function index()
     {
