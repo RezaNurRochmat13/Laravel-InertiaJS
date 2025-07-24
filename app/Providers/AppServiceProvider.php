@@ -15,13 +15,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(
-            TaskRepositoryInterface::class,
-            TaskRepositoryImpl::class,
-            EmployeeRepositoryInterface::class,
-            EmployeeRepositoryImpl::class
-        );
+        $this->bindRepositories();
     }
+
+    protected function bindRepositories() {
+        $repositories = [
+            TaskRepositoryInterface::class => TaskRepositoryImpl::class,
+            EmployeeRepositoryInterface::class => EmployeeRepositoryImpl::class,
+            // Register other repositories here
+        ];
+
+        foreach ($repositories as $interface => $implementation) {
+            $this->app->bind($interface, $implementation);
+        }
+    }
+
 
     /**
      * Bootstrap any application services.
