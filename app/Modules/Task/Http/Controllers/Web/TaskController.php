@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Task\Http\Controllers;
+namespace App\Modules\Task\Http\Controllers\Web;
 
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
